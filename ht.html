@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Counter</title>
+        <style>
+            body{
+                min-height: 100vh;
+                background:url("Slide1.png")center/cover no-repeat;
+                display:flex;
+                justify-content: center;
+                align-items: center;
+                text-transform: capitalize;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+            }
+            .container{
+                text-align:center;
+                border:0.2vw solid grey;
+                padding:1.5vw;
+                box-shadow:0.6vw 0.6vw 1vw 1vw black;
+            }
+            #head{
+                font-size:4vw;
+                color:rgb(236, 18, 18);
+                text-shadow:0.75vw 0.75vw 0.75vw black;
+            }
+            #count{
+                font-size:8vw;
+                color:#ffffff;
+                text-shadow:0.75vw 0.75vw 0.75vw black;
+            }
+            #lowercount,#addcount{
+                text-transform: capitalize;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                font-size:1.5vw;
+                padding:0.25vw 1vw;
+                border-radius:2vw;
+                outline:none;
+                box-shadow: 0 0.3vw 0 0 black;
+                margin:1vw;
+                color:maroon;
+                background-color:green;
+                border:0.15vw solid white;
+            }
+            #lowercount:hover,#addcount:hover{
+                color:yellow;
+                cursor: pointer;
+            }
+            #lowercount:active,#addcount:active{
+                box-shadow: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h2 id="head">counter</h2>
+            <p id="count">0</p>
+            <button type="butoon" id="lowercount">lower count</button>
+            <button type="button" id="addcount">add count</button>
+        </div>
+        <script>
+            const lowercount=document.querySelector("#lowercount");
+            const addcount=document.querySelector("#addcount");
+            const count=document.querySelector('#count');
+            var num=0;
+            lowercount.addEventListener('click',decrement);
+            addcount.addEventListener('click',increment);
+            function decrement(){
+                num--;
+                count.innerHTML=num;
+                if(num>0){
+                    count.style.color='yellow';
+                }
+                else if(num<0){
+                    count.style.color='black';
+                }
+                else{
+                    count.style.color='white';
+                }
+                count.animate([{opacity:'0.1'},{opacity:'0.3'},{opacity:'0.7'},{opacity:'1.0'}],
+                {duration:750,fill:'forwards'});
+            }
+            function increment(){
+                num++;
+                count.innerHTML=num;
+                if(num>0){
+                    count.style.color='yellow';
+                }
+                else if(num<0){
+                    count.style.color='black';
+                }
+                else{
+                    count.style.color='white';
+                }
+                count.animate([{opacity:'0.1'},{opacity:'0.3'},{opacity:'0.7'},{opacity:'1.0'}],
+                {duration:750,fill:'forwards'});
+            }
+        </script>
+    </body>
+</html>
